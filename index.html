@@ -1,16 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#000000" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icons/icon-192x192.png" type="image/png" />
+  <link rel="manifest" href="/test/manifest.json" />
+  <link rel="icon" href="/test/icons/icon-192x192.png" type="image/png" />
   <title>Asphalt Truck Calc</title>
 </head>
 <body>
   <h1>Asphalt Truck Calculator</h1>
   <p>PWA simgesi ayarlandı.</p>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/test/service-worker.js')
+        .then(reg => console.log('SW registered!', reg))
+        .catch(err => console.error('SW registration failed:', err));
+    }
+  </script>
 </body>
 </html>
